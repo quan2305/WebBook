@@ -18,25 +18,9 @@
 	
 <body>
 
-<form  method="post" action="/WebBook/search">
-	<input type="text" name="titleBook"  placeholder="Search name book">
-	<button type="submit" name="save">Search</button>
-</form>
-
-<h2>Category</h2>
-<form action = "/WebBook/category" method="post">
-	<select name = "item">
-		
-		<%List<Category_object> list =  (List<Category_object>) request.getAttribute("listCategory");
-			for(Category_object c : list){ %>
-				<option value= "<%=c.getId() %>"><%= c.getName() %></option>
-			<% } %>
-	</select>
-	<input type="submit" value="Select">
-</form>
 
 	
-<h2>List Book</h2>
+<h2>Book Search</h2>
       <table border ="1" width="500" align="center">
          <tr bgcolor="00FF7F">
           <th><b>ID</b></th>
@@ -46,7 +30,7 @@
           <th><b>Category ID</b></th>
          </tr>
         
-        <%List<Book> std =  (List<Book>)request.getAttribute("listBook");
+        <%List<Book> std =  (List<Book>)request.getAttribute("bookFind");
         for(Book b : std){%>
        
             <tr>
@@ -59,8 +43,7 @@
             <%}%>
         </table> 
        
-       <a href="logout.jsp">Logout</a>
-	
+		<a href="/WebBook/home">Back</a>
 	
 </body>
 
